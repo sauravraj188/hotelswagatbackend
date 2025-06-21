@@ -30,6 +30,9 @@ const bookingSchema = new mongoose.Schema({
   totalPrice:         { type: Number, required: true },
   paymentScreenshot:  { type: String }, // optional URL to screenshot/image
   paymentStatus:      { type: String, enum: ['pending', 'paid'], default: 'pending' },
+  assignedRoom:       {type: String, required: false },
+  status: { type: String, enum: ['pending', 'confirmed','cancelled','checked-in','checked-in'], default: 'pending'}
+  
 }, { timestamps: true });
 
 module.exports = mongoose.model('Booking', bookingSchema);
